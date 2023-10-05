@@ -30,14 +30,15 @@ class Test_SearchCustomerByEmail_004:
 
         self.addcust = AddCustomer(self.driver)
         self.addcust.clickOnCustomersMenu()
+        # setup.driver.implicitly_wait(10)
         self.addcust.clickOnCustomersMenuItem()
 
         self.logger.info("************* searching customer by emailID **********")
         searchcust = SearchCustomer(self.driver)
-        searchcust.setEmail("victoria_victoria@nopCommerce.com")
+        searchcust.setEmail("lukely@gmail.com")
         searchcust.clickSearch()
         time.sleep(5)
-        status = searchcust.searchCustomerByEmail("victoria_victoria@nopCommerce.com")
+        status = searchcust.searchCustomerByEmail("lukely@gmail.com")
         self.driver.close()
         assert True == status
         self.logger.info("***************  TC_SearchCustomerByEmail_004 Finished  *********** ")

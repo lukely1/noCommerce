@@ -1,9 +1,11 @@
+from _datetime import datetime
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-
+import os
 
 @pytest.fixture()
 def setup(browser):
@@ -47,7 +49,7 @@ def browser(request):  # This will return the Browser value to setup method
 #     metadata.pop("JAVA_HOME", None)
 #     metadata.pop("Plugins", None)
 
-# # Specifying report folder location and save report with timestamp
+# Specifying report folder location and save report with timestamp
 # @pytest.hookimpl(tryfirst=True)
 # def pytest_configure(config):
 #     config.option.htmlpath = os.path.abspath(os.curdir) + "/reports/" + datetime.now().strftime(

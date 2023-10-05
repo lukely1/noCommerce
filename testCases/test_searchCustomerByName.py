@@ -5,6 +5,7 @@ from pageObjects.AddcustomerPage import AddCustomer
 from pageObjects.SearchCustomerPage import SearchCustomer
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+import os
 
 
 class Test_SearchCustomerByName_005:
@@ -40,6 +41,12 @@ class Test_SearchCustomerByName_005:
         searchcust.clickSearch()
         time.sleep(5)
         status = searchcust.searchCustomerByName("Victoria Terces")
-        self.driver.close()
-        assert True == status
+        if status == True:
+            self.driver.close()
+            assert True == status
+        else:
+            self.driver.save_screenshot(os.path.abspath(os.curdir) + '//screenshots//' + 'test_search_by_name.png')
+            self.driver.close()
+            assert False
+
         self.logger.info("***************  TC_SearchCustomerByName_005 Finished  *********** ")
